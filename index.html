@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Review Collector</title>
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Review Collector</h1>
+        <div class="review-container">
+            <!-- left column for new reviews -->
+            <div class="new-review">
+                <h2>We value your feedback</h2>
+                <div id="review-form">
+                <label for="username"> Name </label>
+                <input type="text" id="username" placeholder="Enter your Name"> <br>
+                    <div class="rating">
+                        <p>How would you rate it ?</p>
+                        <div class="stars-container">
+                            <span class="star" id="1">&#9733;</span>
+                            <span class="star" id="2">&#9733;</span>
+                            <span class="star" id="3">&#9733;</span>
+                            <span class="star" id="4">&#9733;</span>
+                            <span class="star" id="5">&#9733;</span>
+                        </div>
+                    </div>
+                <label for="review-title">Title your review</label>
+                <input type="text" name="" id="review-title" placeholder="Whats most important to know?">
+                <label for="user-review">Write your review</label>
+                <textarea id="user-review" placeholder="What did you like or dislike? What did you use this product for?" rows="4"></textarea>
+                <button id="submit-btn">Submit</button>
+                </div>
+            </div>
+
+            <!-- right column for recent reviews  -->
+            <div class="recent-review">
+                <h2>Recent Reviews</h2>
+                <ul id="review-list">
+                    <li class="review-item">
+                        <!-- Review Title (Bold) -->
+                        <h3 class="review-title">The Best Coding Experience Ever!</h3>
+                    
+                        <!-- Star Rating (5 Stars) -->
+                        <div class="rating-display">
+                            <span class="review-star active-star">&#9733;</span>
+                            <span class="review-star active-star">&#9733;</span>
+                            <span class="review-star active-star">&#9733;</span>
+                            <span class="review-star active-star">&#9733;</span>
+                            <span class="review-star active-star">&#9733;</span>
+                        </div>
+                    
+                        <!-- Review Description (Normal) -->
+                        <p class="review-description">
+                            Joining Chaicode Cohort has been an absolute game-changer! 🚀  
+                            The mentorship, hands-on projects, and real-world insights have helped me grow tremendously as a developer. 🔥
+                        </p>
+                    
+                        <!-- Name and Date Section -->
+                        <div class="name-section">
+                            <p class="review-username">- Ansh Kotnala</p>
+                            <p class="review-date">Thu 20 Feb 2025 | 1:31 AM</p>
+                        </div>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
+

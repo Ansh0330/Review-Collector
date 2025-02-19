@@ -1,0 +1,351 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.wrapper {
+    width: 85%;
+    height: 95%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    color: #fff;
+}
+
+
+h1 {
+    font-size: 38px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.review-container {
+    display: flex;
+    gap: 20px;
+}
+
+.new-review, .recent-review {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.new-review:hover, .recent-review:hover {
+    transform: translateY(-5px);
+}
+
+#review-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    text-align: left; 
+    margin: 10px 0 5px;
+    
+}
+
+p{
+    font-weight: 600;
+    text-align: left;
+    margin: 10px 0 5px;
+    margin-top: 0;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    outline: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+input::placeholder, textarea::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+input:focus, textarea:focus {
+    background: rgba(255, 255, 255, 0.3);
+    border: 2px solid #ff9a9e;
+}
+
+button {
+    background: linear-gradient(90deg, #ff758c, #ff7eb3);
+    color: #fff;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(90deg, #ff7eb3, #ff758c);
+    transform: scale(1.05);
+}
+
+.rating {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 8px;
+    margin-top: -30px;
+}
+
+.star {
+    font-size: 28px;
+    color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: color 0.3s, transform 0.2s;
+}
+
+.star:hover, .star.active {
+    color: #ffdd57;
+    transform: scale(1.2);
+}
+
+
+.recent-review {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+    max-height: 600px;
+    overflow-y: auto;
+    scrollbar-width: thin; 
+    scrollbar-color: #ff7eb3 rgba(255, 255, 255, 0.1);
+    position: relative;
+}
+
+.recent-review::-webkit-scrollbar {
+    width: 6px;
+}
+
+.recent-review::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, #ff758c, #ff7eb3);
+    border-radius: 10px;
+}
+
+.recent-review::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.recent-review ul {
+    list-style: none;
+    padding: 0;
+}
+
+.recent-review ul li {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 14px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.review-item {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.review-title {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.review-description {
+    font-size: 14px;
+    font-weight: normal;
+    margin-bottom: 10px;
+}
+
+.name-section{
+    display: flex;
+    justify-content: space-between;
+}
+
+.review-username {
+    font-style: italic;
+    font-size: 14px;
+    color: #ffdd57;
+}
+
+.review-date {
+    font-weight: bold;
+    font-size: 13px;
+    color: #fad0c4;
+}
+
+.rating-display {
+    margin: 5px 0;
+    font-size: 18px;
+}
+
+.review-star {
+    color: rgba(255, 255, 255, 0.5);
+    transition: color 0.3s;
+}
+
+.active-star {
+    color: #ffdd57 !important;
+}
+
+@media (max-width: 1024px) {
+    .wrapper {
+        width: 90%;
+        padding: 30px;
+    }
+
+    .review-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .new-review, .recent-review {
+        width: 100%;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 34px;
+    }
+
+    input, textarea {
+        font-size: 15px;
+        padding: 10px;
+    }
+
+    button {
+        font-size: 16px;
+        padding: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .wrapper {
+        width: 95%;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .review-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .new-review, .recent-review {
+        width: 100%;
+        padding: 15px;
+    }
+
+    input, textarea {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .star {
+        font-size: 24px;
+    }
+
+    .recent-review {
+        max-height: 350px;
+        overflow-y: auto;
+    }
+}
+
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 24px;
+        padding: 8px;
+    }
+
+    .review-container {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .new-review, .recent-review {
+        padding: 12px;
+    }
+
+    input, textarea {
+        font-size: 12px;
+        padding: 6px;
+    }
+
+    button {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .star {
+        font-size: 22px;
+    }
+
+    .recent-review {
+        max-height: 300px;
+        overflow-y: auto;
+    }
+}
+
