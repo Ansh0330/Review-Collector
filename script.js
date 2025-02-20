@@ -26,23 +26,23 @@ function updateStars() {
     });
 }
 
-//formatting the date timestamp
 function formatTimestamp() {
     const now = new Date();
 
-    // Get individual date components
-    const options = { weekday: "short", day: "2-digit", month: "short", year: "numeric" };
-    const dateParts = new Intl.DateTimeFormat("en-IN", options).formatToParts(now);
+    // Format date (without commas)
+    const formattedDate = now.toLocaleDateString("en-IN", {
+        weekday: "short",
+        day: "2-digit",
+        month: "short",
+        year: "numeric"
+    }).replace(/,/g, ""); // Remove commas
 
-    // Manually construct the date string without commas
-    let formattedDate = `${dateParts[0].value} ${dateParts[2].value} ${dateParts[4].value} ${dateParts[6].value}`;
-
-    // Format time separately
-    const formattedTime = new Intl.DateTimeFormat("en-IN", {
+    // Format time
+    const formattedTime = now.toLocaleTimeString("en-IN", {
         hour: "2-digit",
         minute: "2-digit",
         hour12: true
-    }).format(now);
+    });
 
     return `${formattedDate} | ${formattedTime}`;
 }
@@ -113,7 +113,6 @@ function addReview(){
         li.style.opacity = "1";
         li.style.transform = "translateY(0)";
     }, 100);
-
 
     userName.value = "";
     reviewTitle.value = "";
